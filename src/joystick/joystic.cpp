@@ -98,7 +98,7 @@ void updateDisplay(uint8_t ax, uint8_t ay, uint8_t az) {
 
 void setup() {
     M5.begin();
-    Wire.begin(0, 26, 10000);
+    Wire.begin(0, 26);
     cfg.init();
 
     M5.Lcd.setRotation(4);
@@ -163,6 +163,6 @@ void loop() {
     jm.ck = ck;
 
     updateDisplay(ax, ay, az);
-    if(jm.ck != 0x00) joystick.sendJoystickMsg(jm,tankLego);
-    // if(jm.ck != 0x00) joystick.sendJoystickMsg(jm);
+    // if(jm.ck != 0x00) joystick.sendJoystickMsg(jm,tankLego);
+    if(jm.ck != 0x00) joystick.sendJoystickMsg(jm);
 }
